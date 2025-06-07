@@ -4,23 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import {
-  Github,
-  Mail,
-  Twitter,
-  Code,
-  Zap,
-  Coffee,
-  Gamepad2,
-  Music,
-  Terminal,
-  Star,
-  Sparkles,
-  Pizza,
-  Cpu,
-  Bot,
-  Clock,
-} from "lucide-react"
+import { Github, Twitter, Code, Zap, Star, Sparkles, Cpu, Clock } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export default function CyberpunkPortfolio() {
@@ -75,24 +59,7 @@ export default function CyberpunkPortfolio() {
 
   return (
     <div className="min-h-screen bg-black text-green-400 font-mono">
-      {/* Navbar */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-green-500/30 transition-all duration-1000 ${isLoaded ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
-      >
-        <div className="flex items-center justify-between px-8 py-4">
-          <div className="text-green-400 font-bold text-lg glow-text">jinbao4.exe</div>
-          <div className="flex items-center gap-4">
-            <Coffee className="w-5 h-5 text-green-400 hover:text-green-300 transition-all duration-300 transform hover:scale-110 hover-glow" />
-            <Gamepad2 className="w-5 h-5 text-green-400 hover:text-green-300 transition-all duration-300 transform hover:scale-110 hover-glow" />
-            <Music className="w-5 h-5 text-green-400 hover:text-green-300 transition-all duration-300 transform hover:scale-110 hover-glow" />
-            <Pizza className="w-5 h-5 text-green-400 hover:text-green-300 transition-all duration-300 transform hover:scale-110 hover-glow" />
-            <Bot className="w-5 h-5 text-green-400 hover:text-green-300 transition-all duration-300 transform hover:scale-110 hover-glow" />
-            <Terminal className="w-5 h-5 text-green-400 hover:text-green-300 transition-all duration-300 transform hover:scale-110 hover-glow" />
-          </div>
-        </div>
-      </nav>
-
-      <div className="grid grid-cols-2 h-screen pt-16">
+      <div className="grid grid-cols-2 h-screen">
         {/* Left Side - Fixed Otto Section (No Scroll) */}
         <div
           className={`h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-green-900/20 flex items-center justify-center p-8 relative border-r border-green-500/30 transition-all duration-1500 ${isLoaded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
@@ -132,7 +99,7 @@ export default function CyberpunkPortfolio() {
               <div className="absolute inset-0 bg-green-300/15 rounded-full blur-2xl scale-125"></div>
               <div className="absolute inset-0 bg-green-500/25 rounded-full blur-xl"></div>
               <Avatar className="w-56 h-56 border-4 border-green-400 shadow-2xl shadow-green-400/60 relative animate-float hover:shadow-green-400/80 hover:border-green-300 transition-all duration-300 transform hover:scale-105">
-                <AvatarImage src="/placeholder.svg?height=224&width=224" alt="Otto the cat" />
+                <AvatarImage src="/otto.jpeg?height=224&width=224" alt="Otto the cat" />
                 <AvatarFallback className="bg-green-900 text-green-400 text-7xl">🐱</AvatarFallback>
               </Avatar>
             </div>
@@ -162,7 +129,7 @@ export default function CyberpunkPortfolio() {
               </div>
               <div className="flex items-center justify-center gap-2 hover-glow">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span>otto approved</span>
+                <span>otto approved™</span>
               </div>
             </div>
           </div>
@@ -181,9 +148,9 @@ export default function CyberpunkPortfolio() {
 
         {/* Right Side - Scrollable Content */}
         <div
-          className={`overflow-y-auto bg-gradient-to-b from-black via-gray-900 to-black custom-scrollbar transition-all duration-1500 delay-300 ${isLoaded ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
+          className={`h-screen overflow-y-auto bg-black transition-all duration-1500 delay-300 ${isLoaded ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
         >
-          <div className="p-8 space-y-8">
+          <div className="min-h-screen bg-gradient-to-b from-black via-gray-900/90 to-black p-8 space-y-8 pb-24">
             {/* Header */}
             <div
               className={`space-y-4 transition-all duration-1000 delay-1000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
@@ -295,13 +262,6 @@ export default function CyberpunkPortfolio() {
                     <Button
                       variant="outline"
                       className="border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-400 transition-all hover:shadow-md hover:shadow-green-400/30 transform hover:scale-105"
-                    >
-                      <Mail className="w-4 h-4 mr-2" />
-                      email
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-400 transition-all hover:shadow-md hover:shadow-green-400/30 transform hover:scale-105"
                       onClick={() => window.open("https://x.com/jinbao4s", "_blank")}
                     >
                       <Twitter className="w-4 h-4 mr-2" />
@@ -328,6 +288,11 @@ export default function CyberpunkPortfolio() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Footer */}
+            <div className="text-center text-green-500/30 text-xs pt-8 pb-16">
+              <p>made with loads of pepsi cherry and loads of ottos</p>
+            </div>
           </div>
         </div>
       </div>
@@ -387,23 +352,6 @@ export default function CyberpunkPortfolio() {
 
         @keyframes fadeIn {
           to { opacity: 1; }
-        }
-
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(0, 0, 0, 0.3);
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(34, 197, 94, 0.5);
-          border-radius: 4px;
-        }
-        
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(34, 197, 94, 0.8);
         }
 
         .cyber-card {
