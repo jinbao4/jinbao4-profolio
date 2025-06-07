@@ -59,16 +59,19 @@ export default function CyberpunkPortfolio() {
 
   return (
     <div className="min-h-screen bg-black text-green-400 font-mono">
-      <div className="grid grid-cols-2 h-screen">
-        {/* Left Side - Fixed Otto Section (No Scroll) */}
+      <div className="grid lg:grid-cols-2 min-h-screen">
+        {/* Left Side - Otto Section */}
         <div
-          className={`h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-green-900/20 flex items-center justify-center p-8 relative border-r border-green-500/30 transition-all duration-1500 ${isLoaded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
+          className={`min-h-screen lg:h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-green-900/20 flex items-center justify-center p-4 lg:p-8 relative lg:border-r border-green-500/30 transition-all duration-1500 ${isLoaded ? "translate-y-0 lg:translate-x-0 opacity-100" : "translate-y-10 lg:-translate-x-full opacity-0"}`}
         >
           {/* Animated Grid Background */}
           <div className="absolute inset-0 opacity-10">
-            <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
-              {Array.from({ length: 144 }).map((_, i) => (
-                <div key={i} className="border border-green-500/20"></div>
+            <div className="grid grid-cols-8 lg:grid-cols-12 grid-rows-8 lg:grid-rows-12 h-full w-full">
+              {Array.from({ length: 64 }).map((_, i) => (
+                <div key={i} className="border border-green-500/20 hidden lg:block"></div>
+              ))}
+              {Array.from({ length: 64 }).map((_, i) => (
+                <div key={`mobile-${i}`} className="border border-green-500/20 lg:hidden"></div>
               ))}
             </div>
           </div>
@@ -91,34 +94,34 @@ export default function CyberpunkPortfolio() {
 
           {/* Centered Content */}
           <div
-            className={`relative z-10 text-center space-y-8 transition-all duration-2000 delay-500 ${isLoaded ? "scale-100 opacity-100" : "scale-75 opacity-0"}`}
+            className={`relative z-10 text-center space-y-4 lg:space-y-8 transition-all duration-2000 delay-500 ${isLoaded ? "scale-100 opacity-100" : "scale-75 opacity-0"}`}
           >
             {/* Avatar with Multiple Glow Layers */}
             <div className="relative flex items-center justify-center">
               <div className="absolute inset-0 bg-green-400/20 rounded-full blur-3xl scale-150"></div>
               <div className="absolute inset-0 bg-green-300/15 rounded-full blur-2xl scale-125"></div>
               <div className="absolute inset-0 bg-green-500/25 rounded-full blur-xl"></div>
-              <Avatar className="w-56 h-56 border-4 border-green-400 shadow-2xl shadow-green-400/60 relative animate-float hover:shadow-green-400/80 hover:border-green-300 transition-all duration-300 transform hover:scale-105">
+              <Avatar className="w-32 h-32 lg:w-56 lg:h-56 border-4 border-green-400 shadow-2xl shadow-green-400/60 relative animate-float hover:shadow-green-400/80 hover:border-green-300 transition-all duration-300 transform hover:scale-105">
                 <AvatarImage src="/otto.jpeg?height=224&width=224" alt="Otto the cat" />
-                <AvatarFallback className="bg-green-900 text-green-400 text-7xl">🐱</AvatarFallback>
+                <AvatarFallback className="bg-green-900 text-green-400 text-4xl lg:text-7xl">🐱</AvatarFallback>
               </Avatar>
             </div>
 
             {/* Otto Info */}
-            <div className="space-y-6">
-              <div className="text-green-500/60 text-sm">^ otto</div>
-              <div className="text-green-300 text-2xl font-mono glow-text-strong">
+            <div className="space-y-3 lg:space-y-6">
+              <div className="text-green-500/60 text-xs lg:text-sm">^ otto</div>
+              <div className="text-green-300 text-lg lg:text-2xl font-mono glow-text-strong">
                 {displayText}
                 {showCursor && <span className="animate-pulse">|</span>}
               </div>
-              <div className="text-green-300/80 text-xl max-w-sm mx-auto leading-relaxed space-y-2">
+              <div className="text-green-300/80 text-base lg:text-xl max-w-sm mx-auto leading-relaxed space-y-2">
                 <div className="hover-glow">im a junior developer</div>
                 <div className="hover-glow">i love my cat</div>
               </div>
             </div>
 
             {/* Status Indicators */}
-            <div className="space-y-3 text-green-500/60 text-sm">
+            <div className="space-y-2 lg:space-y-3 text-green-500/60 text-xs lg:text-sm">
               <div className="flex items-center justify-center gap-2 hover-glow">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 <span>just chillin</span>
@@ -135,12 +138,16 @@ export default function CyberpunkPortfolio() {
           </div>
 
           {/* Corner Decorations */}
-          <div className="absolute top-4 right-4 text-green-500/30 text-xs hover-glow">[OTTO.CAT]</div>
-          <div className="absolute bottom-4 left-4 text-green-500/30 text-xs hover-glow">v2.0.24</div>
-          <div className="absolute top-4 left-4 text-green-500/30 text-xs hover-glow">
-            <Star className="w-4 h-4" />
+          <div className="absolute top-2 lg:top-4 right-2 lg:right-4 text-green-500/30 text-xs hover-glow">
+            [OTTO.CAT]
           </div>
-          <div className="absolute bottom-4 right-4 text-green-500/30 text-xs flex items-center gap-1 hover-glow">
+          <div className="absolute bottom-2 lg:bottom-4 left-2 lg:left-4 text-green-500/30 text-xs hover-glow">
+            v2.0.24
+          </div>
+          <div className="absolute top-2 lg:top-4 left-2 lg:left-4 text-green-500/30 text-xs hover-glow">
+            <Star className="w-3 h-3 lg:w-4 lg:h-4" />
+          </div>
+          <div className="absolute bottom-2 lg:bottom-4 right-2 lg:right-4 text-green-500/30 text-xs flex items-center gap-1 hover-glow">
             <Clock className="w-3 h-3" />
             <span className="font-mono">{currentTime}</span>
           </div>
@@ -148,15 +155,15 @@ export default function CyberpunkPortfolio() {
 
         {/* Right Side - Scrollable Content */}
         <div
-          className={`h-screen overflow-y-auto bg-black transition-all duration-1500 delay-300 ${isLoaded ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
+          className={`min-h-screen lg:h-screen overflow-y-auto bg-black transition-all duration-1500 delay-300 ${isLoaded ? "translate-y-0 lg:translate-x-0 opacity-100" : "translate-y-10 lg:translate-x-full opacity-0"}`}
         >
-          <div className="min-h-screen bg-gradient-to-b from-black via-gray-900/90 to-black p-8 space-y-8 pb-24">
+          <div className="min-h-screen bg-gradient-to-b from-black via-gray-900/90 to-black p-4 lg:p-8 space-y-6 lg:space-y-8 pb-16 lg:pb-24">
             {/* Header */}
             <div
-              className={`space-y-4 transition-all duration-1000 delay-1000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+              className={`space-y-3 lg:space-y-4 transition-all duration-1000 delay-1000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
               <div className="text-green-300 text-sm">{">"} hey</div>
-              <h1 className="text-5xl font-bold text-green-400 glitch-text glow-text-strong">wassup</h1>
+              <h1 className="text-3xl lg:text-5xl font-bold text-green-400 glitch-text glow-text-strong">wassup</h1>
               <div className="text-green-300/70 hover-glow">{">"} this is my website i guess</div>
             </div>
 
@@ -164,12 +171,12 @@ export default function CyberpunkPortfolio() {
             <Card
               className={`bg-black/50 border-green-500/30 backdrop-blur hover:border-green-400/50 transition-all hover:shadow-lg hover:shadow-green-400/20 cyber-card duration-1000 delay-1200 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-green-400 mb-6 flex items-center gap-3 glow-text">
-                  <Code className="w-6 h-6" />
+              <CardContent className="p-4 lg:p-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-green-400 mb-4 lg:mb-6 flex items-center gap-3 glow-text">
+                  <Code className="w-5 h-5 lg:w-6 lg:h-6" />
                   what i doo
                 </h2>
-                <div className="space-y-4 text-green-300/80 text-lg">
+                <div className="space-y-3 lg:space-y-4 text-green-300/80 text-sm lg:text-base">
                   <p className="hover-glow">{">"} mostly python stuff</p>
                   <p className="hover-glow">{">"} make bots for discord and other platforms</p>
                   <p className="hover-glow">{">"} random projects when im bored</p>
@@ -183,12 +190,12 @@ export default function CyberpunkPortfolio() {
             <Card
               className={`bg-black/50 border-green-500/30 backdrop-blur hover:border-green-400/50 transition-all hover:shadow-lg hover:shadow-green-400/20 cyber-card duration-1000 delay-1400 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-green-400 mb-6 flex items-center gap-3 glow-text">
-                  <Zap className="w-6 h-6" />
+              <CardContent className="p-4 lg:p-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-green-400 mb-4 lg:mb-6 flex items-center gap-3 glow-text">
+                  <Zap className="w-5 h-5 lg:w-6 lg:h-6" />
                   stuff i use
                 </h2>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3">
                   {[
                     { name: "Python", primary: true },
                     { name: "Discord.py", primary: true },
@@ -210,7 +217,7 @@ export default function CyberpunkPortfolio() {
                         skill.primary
                           ? "border-green-500 text-green-300 bg-green-900/20"
                           : "border-green-500/50 text-green-400"
-                      } hover:bg-green-500/10 hover:border-green-400 transition-all py-2 px-4 text-sm hover:shadow-md hover:shadow-green-400/30 animate-fade-in hover-glow transform hover:scale-105`}
+                      } hover:bg-green-500/10 hover:border-green-400 transition-all py-2 px-3 lg:px-4 text-xs lg:text-sm hover:shadow-md hover:shadow-green-400/30 animate-fade-in hover-glow transform hover:scale-105`}
                       style={{ animationDelay: `${1600 + i * 100}ms` }}
                     >
                       {skill.name}
@@ -225,12 +232,12 @@ export default function CyberpunkPortfolio() {
             <Card
               className={`bg-black/50 border-green-500/30 backdrop-blur hover:border-green-400/50 transition-all hover:shadow-lg hover:shadow-green-400/20 cyber-card duration-1000 delay-1600 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-green-400 mb-6 flex items-center gap-3 glow-text">
-                  <Sparkles className="w-6 h-6" />
+              <CardContent className="p-4 lg:p-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-green-400 mb-4 lg:mb-6 flex items-center gap-3 glow-text">
+                  <Sparkles className="w-5 h-5 lg:w-6 lg:h-6" />
                   other stuff i doo
                 </h2>
-                <div className="space-y-3 text-green-300/80">
+                <div className="space-y-2 lg:space-y-3 text-green-300/80 text-sm lg:text-base">
                   <p className="hover-glow">{">"} write python stuff at like 3am</p>
                   <p className="hover-glow">{">"} break things a lot</p>
                   <p className="hover-glow">{">"} pet otto probably too much</p>
@@ -246,14 +253,18 @@ export default function CyberpunkPortfolio() {
             <Card
               className={`bg-black/50 border-green-500/30 backdrop-blur hover:border-green-400/50 transition-all hover:shadow-lg hover:shadow-green-400/20 cyber-card duration-1000 delay-1800 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-green-400 mb-6 glow-text">contact me i guess</h2>
+              <CardContent className="p-4 lg:p-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-green-400 mb-4 lg:mb-6 glow-text">
+                  contact me i guess
+                </h2>
                 <div className="space-y-4">
-                  <p className="text-green-300/80 mb-6 hover-glow">idk maybe we can make something cool together</p>
-                  <div className="flex flex-wrap gap-4">
+                  <p className="text-green-300/80 mb-4 lg:mb-6 hover-glow text-sm lg:text-base">
+                    idk maybe we can make something cool together
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
                     <Button
                       variant="outline"
-                      className="border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-400 transition-all hover:shadow-md hover:shadow-green-400/30 transform hover:scale-105"
+                      className="border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-400 transition-all hover:shadow-md hover:shadow-green-400/30 transform hover:scale-105 text-sm lg:text-base"
                       onClick={() => window.open("https://github.com/jinbao4", "_blank")}
                     >
                       <Github className="w-4 h-4 mr-2" />
@@ -261,7 +272,7 @@ export default function CyberpunkPortfolio() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-400 transition-all hover:shadow-md hover:shadow-green-400/30 transform hover:scale-105"
+                      className="border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-400 transition-all hover:shadow-md hover:shadow-green-400/30 transform hover:scale-105 text-sm lg:text-base"
                       onClick={() => window.open("https://x.com/jinbao4s", "_blank")}
                     >
                       <Twitter className="w-4 h-4 mr-2" />
@@ -276,9 +287,9 @@ export default function CyberpunkPortfolio() {
             <Card
               className={`bg-black/50 border-green-500/30 backdrop-blur hover:border-green-400/50 transition-all hover:shadow-lg hover:shadow-green-400/20 cyber-card duration-1000 delay-2000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-green-400 mb-6 glow-text">random facts</h2>
-                <div className="space-y-3 text-green-300/80">
+              <CardContent className="p-4 lg:p-8">
+                <h2 className="text-xl lg:text-2xl font-bold text-green-400 mb-4 lg:mb-6 glow-text">random facts</h2>
+                <div className="space-y-2 lg:space-y-3 text-green-300/80 text-sm lg:text-base">
                   <p className="hover-glow">{">"} my first python thing literally did nothing lol</p>
                   <p className="hover-glow">{">"} otto deleted my code once by walking on my keyboard</p>
                   <p className="hover-glow">{">"} i debug with print statements and idc what anyone says</p>
@@ -290,7 +301,7 @@ export default function CyberpunkPortfolio() {
             </Card>
 
             {/* Footer */}
-            <div className="text-center text-green-500/30 text-xs pt-8 pb-16">
+            <div className="text-center text-green-500/30 text-xs pt-6 lg:pt-8 pb-8 lg:pb-16">
               <p>made with loads of pepsi cherry and loads of ottos</p>
             </div>
           </div>
